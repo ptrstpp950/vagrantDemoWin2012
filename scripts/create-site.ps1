@@ -1,8 +1,8 @@
 import-module webadministration
 
 
-rm c:\Altamira -Force -Recurse
-cp C:\vagrant\dist\ C:\Altamira -Force -Recurse
+rm c:\Presentation -Force -Recurse
+cp C:\vagrant\site\ C:\Presentation -Force -Recurse
 
 
 if(Test-Path IIS:\Sites\"Default Web Site"){
@@ -26,7 +26,7 @@ else
 }
 
 
-$directories = @("c:\Altamira\")
+$directories = @("c:\Presentation\")
 
 ForEach ($directory in $directories)
 {
@@ -58,7 +58,7 @@ if(Test-Path IIS:\Sites\"NmB"){
 else
 {
 	Write-Host "Create new site called NmB"
-	New-WebSite -Name NmB -Id 1 -Port 80 -PhysicalPath "c:\Altamira\" -ApplicationPool NmB
+	New-WebSite -Name NmB -Id 1 -Port 80 -PhysicalPath "c:\Presentation\" -ApplicationPool NmB
 	New-ItemProperty "IIS:\Sites\NmB" -Name bindings -Value @{protocol="https";bindingInformation="*:443:"}	
 	Write-Host "Done"
 }
