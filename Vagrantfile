@@ -35,7 +35,13 @@ Vagrant.configure(2) do |wwwsrv|
 	wwwsrv.vm.provision :shell, path: "scripts/install-iis.ps1"
 	wwwsrv.vm.provision :shell, path: "scripts/enable-dot-net.ps1"
  	wwwsrv.vm.provision :shell, path: "scripts/install-dot-net45.ps1"
-	wwwsrv.vm.provision :shell, path: "scripts/create-site.ps1"
+	wwwsrv.vm.provision :shell, path: "scripts/create-site2.ps1"
+
+
+	###########################
+	## Współdzielenie plików ##
+	###########################
+	wwwsrv.vm.synced_folder "./site", "/site_data"
 
   
 	wwwsrv.vm.provider "virtualbox" do |vb|
