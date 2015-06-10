@@ -27,15 +27,14 @@ Vagrant.configure(2) do |wwwsrv|
 	
 	 wwwsrv.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct:true
 	 wwwsrv.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct:true 
-	 wwwsrv.vm.network "forwarded_port", host: 33389, guest: 3389
 	 wwwsrv.vm.network "forwarded_port", host: 8080, guest: 80
 	 wwwsrv.vm.network "forwarded_port", host: 4443, guest: 443
   
   
 	wwwsrv.vm.provision :shell, path: "scripts/install-iis.ps1"
 	wwwsrv.vm.provision :shell, path: "scripts/enable-dot-net.ps1"
- 	wwwsrv.vm.provision :shell, path: "scripts/install-dot-net45.ps1"
-	wwwsrv.vm.provision :shell, path: "scripts/create-site2.ps1"
+ 	#wwwsrv.vm.provision :shell, path: "scripts/install-dot-net45.ps1"
+	wwwsrv.vm.provision :shell, path: "scripts/create-site.ps1"
 
 
 	###########################
