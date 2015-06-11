@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>agrant with Windows</title>
+    <title>Vagrant with Windows</title>
     <link rel="stylesheet" type="text/css" href="build/build.css">
   </head>
   <body>
@@ -24,14 +24,31 @@
         </h3>
       </section>
 	  <section data-bespoke-hash="about-mateuszjaniszewski">
+		<h2>Who are we?</h2>
 		<h3>Mateusz Janiszewski</h3>
         <h3 class="bullet">
-          <li>TODO</li>
+          <li>Infrastructure virtualization enthusiast</li>
+		  <li>Working in <img src="images/accenture-logo.png" width="121" height="43" alt="Accenture"/> as Bus & Sys Integration Analyst</Li>
         </h3>
       </section>
       
 	  <!--START: about vagrant-->
-	  
+	  <section data-bespoke-hash="about-vagrant">
+        <h2>What is vagrant?</h2>
+		<ul class="bullet">
+			<li>Vagrant is an open-source tool which helps you create, configure and provision development environments.</li>
+			<li>Consider it a wrapper around virtualization software like VMware or VirtualBox and provisioning tools for config management such as Puppet or Chef or even PowerShell :)</li>
+		</ul>
+      </section>
+	  <section data-bespoke-hash="why-vagrant">
+        <h2>Why should I care?</h2>
+		<ol class="bullet">
+			<li>Easily create disposable, consistent environments</li>
+			<li>Set up multiple environments at the same time with one config file, one command. <code class="language-javascript">vagrant up</code> </li>
+			<li>Configuration put under source control</li>
+			<li>Supports various platforms</li>
+		</ol>	
+      </section>
 	  <!--END: about vagrant-->
 	  
 	  <!--START: demo-->
@@ -58,7 +75,72 @@
 	  <!--END: demo-->
 	  
 	  <!--START: about boxes-->
-	  
+	  <section data-bespoke-hash="vagrant-boxes">
+        <h2>Where do boxes come from?</h2>
+        <ul class="bullet">
+			<li>
+				<a href="http://www.vagrantbox.es/">vagrantbox.es</a>
+			</li>
+			<li>
+				<a href="https://atlas.hashicorp.com/boxes/search">atlas.hashicorp.com</a>
+			</li>
+			<li>
+				<a href="https://vagrantcloud.com/">vagrantcloud.com</a>
+			</li>
+			<li>...or just create your own box ;)</li>
+		</ul>
+      </section>
+	  <section data-bespoke-hash="vagrant-create-boxes">
+        <h2>How do I create my own box?</h2>
+			<h3 class="bullet">
+				<li>Fast - packer.io</li>
+				<li>Slow - from scratch</li>
+			</h3>
+      </section>
+	  <section data-bespoke-hash="from-scratch">
+        <h2>Box from scratch</h2>
+        <ul class="bullet">
+				<li>Create and preconfigure a VM - (That's the longest part)</li>
+				<li>Run powershell command: <br><code class="language-javascript">vagrant package --base [VM name] --output [box name].box </code></li>
+				<li><img src="images/vagrant-package.png" width="305" height="132" alt="Package VM to box"/></li>
+		</ul>
+      </section>
+	  <section data-bespoke-hash="packer-1">
+        <h2>Packer</h2>
+        <ul class="bullet">
+			<li>Packer vagrant post-processor can create boxes from such providers as:
+				<h4 class="bullet">
+					<li>AWS</li>
+					<li>DigitalOcean</li>
+					<li>Hyper-V</li>
+					<li>Parallels</li>
+					<li>QEMU</li>
+					<li>VirtualBox</li>
+					<li>VMware</li>
+				</h4>
+			</li>
+
+		</ul>
+      </section>
+	  <section data-bespoke-hash="packer-2">
+        <h2>How?</h2>
+        <ul class="bullet">
+			<li>Packer uses json files as tamplates to create boxes</li> 
+			<li>git clone Joe Fitzgerald's <a href="https://github.com/joefitzgerald/packer-windows">packer-windows</a> for example json</li>
+			<li>You need to provide info for 3 sections:
+				<h4 class="bullet">
+					<li>builders</li>
+					<li>provisioners</li>
+					<li>post-processors</li>
+				</h4>
+			</li>
+			<li><code class="language-javascript">packer build [template_name].json</code></li>
+		</ul>
+      </section>
+	  	  <section data-bespoke-hash="packer-3">
+        <h2>Overview</h2>
+			<li><img src="images/packer.png" width="610" height="364" alt="packer"></li>
+      </section>
 	  <!--END: about boxes-->
 	  
       <section data-bespoke-hash="end">
