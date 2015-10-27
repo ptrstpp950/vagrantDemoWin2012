@@ -4,7 +4,7 @@
 
 if ! File.exists?('./resources/NDP452-KB2901907-x86-x64-AllOS-ENU.exe')
   puts '.Net 4.5.2 installer could not be found!'
-  puts "Please run: .\setup.ps1"
+  puts "Please run: .\\setup.ps1"
   exit 1
 end
 
