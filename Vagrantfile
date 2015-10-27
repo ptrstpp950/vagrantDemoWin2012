@@ -29,6 +29,8 @@ Vagrant.configure(2) do |wwwsrv|
 	 wwwsrv.vm.network :forwarded_port,  host: 2200, guest: 3389, id: "rdp", auto_correct:true 
 	 wwwsrv.vm.network "forwarded_port", host: 8080, guest: 80
 	 wwwsrv.vm.network "forwarded_port", host: 4443, guest: 443
+	 wwwsrv.vm.network "forwarded_port", host: 9018, guest: 4018
+	 
   
   
 	wwwsrv.vm.provision :shell, path: "scripts/install-iis.ps1"

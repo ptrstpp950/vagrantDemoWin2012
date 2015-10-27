@@ -1,11 +1,13 @@
-//Komendy
+﻿//Komendy
 vagrant winrm -c "c:\vagrant\resources\rtools_setup_x64.exe /install /quiet /norestart"
 
 vagrant winrm -c "Set-ExecutionPolicy Unrestricted -Force"
-vagrant winrm -c "c:\vagrant\resources\rtools-firewall.ps1"
+vagrant winrm -c "c:\vagrant\scripts\rtools-firewall.ps1"
 
 vagrant winrm -c "Set-Service msvsmon120 -StartupType Automatic"
 vagrant winrm -c "Start-Service msvsmon120"
 
 //W Visual Studio wpisujemy 127.0.0.1:9018
 //Jak jest ReAttach to potem można już go używać
+
+vagrant winrm -c "c:\vagrant\scripts\deploy.ps1"
