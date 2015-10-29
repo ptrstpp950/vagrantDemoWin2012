@@ -5,5 +5,5 @@ if( (C:\vagrant\scripts\is-step-done.ps1 "install-iis"))
 	return;
 }
 
-CMD /C START /w PKGMGR.EXE /l:log.etw /iu:IIS-WebServerRole
+Install-WindowsFeature Web-Asp-Net45
 write-host "Done installing IIS."

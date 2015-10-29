@@ -10,7 +10,7 @@ end
 
 Vagrant.configure(2) do |wwwsrv|
   
-  	wwwsrv.vm.box = "w2012e_wmf5"
+  	wwwsrv.vm.box = "w2012_wmf5"
   
 	######################################################################
 	## Ustawienie komunikacji z guest OS VM na WinRM (default jest SSH) ##
@@ -31,11 +31,12 @@ Vagrant.configure(2) do |wwwsrv|
 	 wwwsrv.vm.network "forwarded_port", host: 4443, guest: 443
 	 wwwsrv.vm.network "forwarded_port", host: 9018, guest: 4018
 	 
-  
+	##########################
+	## Wywołanie skryptów   ##
+	########################## 
   
 	wwwsrv.vm.provision :shell, path: "scripts/install-iis.ps1"
 	wwwsrv.vm.provision :shell, path: "scripts/enable-dot-net.ps1"
- 	#wwwsrv.vm.provision :shell, path: "scripts/install-dot-net45.ps1"
 	wwwsrv.vm.provision :shell, path: "scripts/create-site.ps1"
 
 
@@ -43,6 +44,7 @@ Vagrant.configure(2) do |wwwsrv|
 	## Współdzielenie plików ##
 	###########################
 	wwwsrv.vm.synced_folder "./site", "/site_data"
+	wwwsrv.vm.synced_folder "D:/VagrantWindows/TestWebApp/TestWebApp", "/TestWebSite"
 
   
 	wwwsrv.vm.provider "virtualbox" do |vb|
