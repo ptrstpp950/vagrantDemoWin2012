@@ -4,6 +4,6 @@ if( (C:\vagrant\scripts\is-step-done.ps1 "install-iis"))
 {
 	return;
 }
-
+Install-WindowsFeature -Name Web-Server -IncludeManagementTools 
 Install-WindowsFeature Web-Asp-Net45
 write-host "Done installing IIS."
